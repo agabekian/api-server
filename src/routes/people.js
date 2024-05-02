@@ -39,7 +39,7 @@ async function updatePerson( request, response ) {
   let data = request.body;
   let person = await People.findOne({where: {id:id}});
   let updatedPerson = await person.update(data);
-  response.status(200).json(updatePerson);
+  response.status(200).json(updatedPerson);
 }
 
 async function deletePerson( request, response ) {
