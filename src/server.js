@@ -12,7 +12,6 @@ const peopleRoutes = require('./routes/people.js');
 
 app.use(cors());
 app.use(express.json());
-
 app.use(peopleRoutes);
 
 // Force an error for the tests
