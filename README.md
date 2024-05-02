@@ -20,5 +20,5 @@ Tests
 
 ### UML
 
-![uml_diag.png](uml3.png)
+![uml_diag.png](uml3.jpg)
 
