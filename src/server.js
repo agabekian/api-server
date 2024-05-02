@@ -15,15 +15,18 @@ app.use(express.json());
 app.use(peopleRoutes);
 
 // Force an error for the tests
-app.get('/broken', (req,res,next) => next("whoops!"));
+app.get('/broken', (req,
+                    res,
+                    next) => next("whoops!")
+);
 
 app.use('*', notFoundHandler);
 app.use(errorHandler);
 
-function start(port) {
-    app.listen(port, () => {
-        console.log(`Server is up on ${port}`);
-    });
-}
+const start = port =>
+    app.listen(port, () =>
+        console.log(`Server is up on ${port}`)
+    );
 
-module.exports = { app, start };
+
+module.exports = {app, start};  // --> index(16)

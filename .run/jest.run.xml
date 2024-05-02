@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="jest" type="NodeJSConfigurationType" application-parameters="--watch" nameIsGenerated="true" path-to-js-file="node_modules/.bin/jest" working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>
