@@ -10,7 +10,7 @@ const {Sequelize, DataTypes} = require('sequelize');
 // let sequelize = new Sequelize(DATABASE_URL, {logging:false}); //old?
 // const sequelize = new Sequlize('dialect://connection.string');
 
-let sequelize = new Sequelize(DATABASE_URL, {j
+let sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres',
     logging: false
 });
