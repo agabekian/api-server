@@ -2,7 +2,7 @@
   "development": {
     "username": "armasconi",
     "password": null,
-    "database": "db_people_401",
+    "database": "401Plus",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },

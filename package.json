@@ -7,10 +7,8 @@
     "test": "NODE_ENV=test jest --coverage",
     "test-watch": "NODE_ENV=test jest --watchAll --coverage",
     "start": "node index.js",
-
     "init:config": "sequelize init:config",
     "db:create": "sequelize db:create"
-
   },
   "author": "John Cokos",
   "license": "MIT",
@@ -24,7 +22,5 @@
     "sequelize-cli": "^6.6.2",
     "sqlite3": "^5.1.7",
     "supertest": "^7.0.0"
-
-
   }
 }
