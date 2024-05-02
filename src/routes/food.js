@@ -6,8 +6,10 @@ const {Food, People} = require('../models');
 router.get("/food", getAllFood);
 router.get('/food/:id', getOneFood);
 router.post('/food', createFood);
-router.put('/people/:id', updateFood);
-router.get('/test/:id', logThis);
+router.put('/food/:id', updateFood);
+router.delete('/food/:id', eatFood)
+
+// router.get('/test/:id', logThis);
 
 async function getAllFood(req, res) {
     let data = await Food.findAll();
@@ -27,12 +29,24 @@ async function createFood(req, res) {
 }
 
 async function updateFood(req, res) {
-    let _id = req.params.id;
+    let id = req.params.id;
+    console.log("id is", id);
     let data = req.body;
-    let foodToMod = await People.findOne({where: {id: _id}});
+    let foodToMod = await Food.findOne({where: {id: id}});
     let gmoFood = await foodToMod.update(data);
     res.status(200).json(gmoFood);
 }
+
+async function eatFood(req, res) {
+    let id = req.params.id;
+    // console.log("grab that num",id);
+    let foodToBeGone = await Food.destroy({where: {id: id}});
+    if (typeof foodToBeGone === "number")
+        res.status(204).send(null);
+    else
+        throw new Error("Error deleting record");
+}
+
 
 // just for testing self
 async function logThis(req, res) {
