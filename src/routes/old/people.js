@@ -6,7 +6,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const {People} = require('../models');
+const {People} = require('../../models');
 
 
 // RESTful route definitions

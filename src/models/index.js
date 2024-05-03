@@ -11,8 +11,23 @@ const sequelize = new Sequelize(
         logging: false
     });
 
-const peopleModel = require('./people.js');
-const foodModel = require('./food.js');
+const peopleModel = require('./old/people.js');
+const foodModel = require('./old/food.js');
+
+const Collection = require('./collection.js');
+
+const recipeSchema = require('./recipe.js');
+const ingredientsSchema = require('./ingredients.js');
+
+const recipeModel = recipeSchema(sequelize, DataTypes);
+const ingredientsModel = ingredientsSchema(sequelize, DataTypes)
+
+// foreign key is the column name in the child table that references the sourceKey in the parent table
+recipeModel.hasMany(ingredientsModel, {foreignKey: 'recipeId', sourceKey: 'id'});
+ingredientsModel.belongsTo(recipeModel, {foreignKey: 'recipeId', targetKey: 'id'})
+
+const recipeCollection = new Collection(recipeModel);
+const ingredientsCollection = new Collection(ingredientsModel)
 
 module.exports = {
     db: sequelize,                      // -->./index.js
@@ -21,7 +36,9 @@ module.exports = {
     ),
     Food: foodModel (
         sequelize, DataTypes
-    )
+    ),
+    Recipe: recipeCollection,
+    Ingredients: ingredientsCollection
 };
 
 // const sequelize = new Sequlize('dialect://connection.string'); simpler?

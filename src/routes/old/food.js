@@ -1,6 +1,6 @@
 const router = require('express').Router(); //nice one-liner
 
-const {Food, People} = require('../models');
+const {Food, People} = require('../../models');
 
 //routes
 router.get("/food", getAllFood);
