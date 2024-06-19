@@ -34,8 +34,8 @@ app.use('*', notFoundHandler);
 app.use(errorHandler);
 
 const start = port =>
-    app.listen(port, () =>
-        console.log(`Server is up on ${port}`)
+    app.listen(3001, () =>
+        console.log(`Server is up on lost ${port}`)
     );
 
 

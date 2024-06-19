@@ -10,7 +10,8 @@ pull https://github.com/agabekian/api-server/pull/4
 #### Setup
 .env requirements <p>
 * PORT
-* DATABASE_URL (local or remote)
+* DATABASE_
+* URL (local or remote)
 * NODE_ENV ( test )
 
 #### Running the app

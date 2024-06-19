@@ -21,6 +21,8 @@ const ingredientsSchema = require('./ingredients.js');
 
 const recipeModel = recipeSchema(sequelize, DataTypes);
 const ingredientsModel = ingredientsSchema(sequelize, DataTypes)
+const inventoryModel = recipeSchema(sequelize, DataTypes);
+
 
 // foreign key is the column name in the child table that references the sourceKey in the parent table
 recipeModel.hasMany(ingredientsModel, {foreignKey: 'recipeId', sourceKey: 'id'});
@@ -28,17 +30,16 @@ ingredientsModel.belongsTo(recipeModel, {foreignKey: 'recipeId', targetKey: 'id'
 
 const recipeCollection = new Collection(recipeModel);
 const ingredientsCollection = new Collection(ingredientsModel)
+const inventoryCollection = new Collection(inventoryModel)
 
 module.exports = {
     db: sequelize,                      // -->./index.js
-    People: peopleModel (
-        sequelize, DataTypes
-    ),
-    Food: foodModel (
+    Food: foodModel(
         sequelize, DataTypes
     ),
     Recipe: recipeCollection,
-    Ingredients: ingredientsCollection
+    Ingredients: ingredientsCollection,
+    Inventory: inventoryCollection,
 };
 
 // const sequelize = new Sequlize('dialect://connection.string'); simpler?
